@@ -13,7 +13,6 @@ public class BibliotecaTest {
    @Test
     public void testWelcomeMessage(){
        Assert.assertEquals(BibliotecaConstants.WELCOME_MESSAGE, BibliotecaApp.getWelcomeMessage());
-
     }
 
     @Test
