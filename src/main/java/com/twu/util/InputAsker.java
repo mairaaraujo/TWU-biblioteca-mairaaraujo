@@ -17,8 +17,16 @@ public class InputAsker {
         this.out = out;
     }
 
-    public String ask(String message) {
+    public void ask(String message) {
         out.println(message);
+    }
+
+    public String getAnswer(){
         return scanner.next();
     }
+
+    public boolean isValidInput(String input) {
+        return ("1".equals(input)) || ("2".equals(input));
+    }
+
 }

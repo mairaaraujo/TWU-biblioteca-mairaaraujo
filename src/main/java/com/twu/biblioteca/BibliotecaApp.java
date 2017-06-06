@@ -28,12 +28,16 @@ public class BibliotecaApp {
 
     }
 
-    public static String getMenuOption(InputAsker inputAsker) {
-        String option = inputAsker.ask("Choose an option:");
+    public static void getMenuOption(InputAsker inputAsker) {
 
-        while(!option.equals("1") && !option.equals("2")){
+        inputAsker.ask("Choose an option:");
+        inputAsker.getAnswer();
+        while(!inputAsker.isValidInput(inputAsker.getAnswer()))
+            inputAsker.ask("Choose an option:");
+
+        /*while(!option.equals("1") && !option.equals("2")){
             inputAsker.ask("Please choose a valid option");
-        }
-        return option;
+        }*/
+
     }
 }

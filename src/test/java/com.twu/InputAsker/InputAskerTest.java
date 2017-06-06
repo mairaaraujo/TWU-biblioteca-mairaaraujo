@@ -1,7 +1,6 @@
 package com.twu.InputAsker;
 
 
-import com.twu.biblioteca.BibliotecaApp;
 import com.twu.util.InputAsker;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,30 +12,43 @@ import org.mockito.Mockito;
  */
 public class InputAskerTest {
 
-    @Test
+    /*@Test
     public void shouldAcceptValidMenuChoice(){
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        Mockito.when(inputAsker.ask(Mockito.anyString())).thenReturn("1");
+        Mockito.when(inputAsker.getAnswer()).thenReturn("1");
 
         Assert.assertEquals("1", BibliotecaApp.getMenuOption(inputAsker));
+    }*/
+
+/*
+    @Test
+    public void shouldAcceptOneDigitInput(){
+
+        InputAsker inputAsker = Mockito.mock(InputAsker.class);
+        Assert.assertTrue(inputAsker.isValidInput("1"));
+    }*/
+
+    @Test
+    public void shouldAcceptOnlyOneDigitInputs(){
+
+        InputAsker inputAsker = Mockito.mock(InputAsker.class);
+        Assert.assertFalse(inputAsker.isValidInput("22"));
     }
 
     @Test
+    public void shouldNotAcceptLiteralInputs(){
+
+        InputAsker inputAsker = Mockito.mock(InputAsker.class);
+        Assert.assertFalse(inputAsker.isValidInput("teste"));
+    }
+
+   /* @Test
     public void shouldNotAcceptInvalidMenuChoice(){
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        Mockito.when(inputAsker.ask(Mockito.anyString())).thenReturn("1");
+        Mockito.when(inputAsker.getAnswer()).thenReturn("1");
 
         Assert.assertEquals("1", BibliotecaApp.getMenuOption(inputAsker));
-    }
-
-    @Test
-    public void shouldAcceptOnlyNumericalInputs(){
-
-        InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        String regex = "\\d+";
-
-
-    }
+    }*/
 }
