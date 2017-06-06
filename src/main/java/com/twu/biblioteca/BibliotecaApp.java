@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import com.twu.util.InputAsker;
 
 public class BibliotecaApp {
 
@@ -23,5 +24,16 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         startApp();
+        getMenuOption(new InputAsker(System.in, System.out));
+
+    }
+
+    public static String getMenuOption(InputAsker inputAsker) {
+        String option = inputAsker.ask("Choose an option:");
+
+        while(!option.equals("1") && !option.equals("2")){
+            inputAsker.ask("Please choose a valid option");
+        }
+        return option;
     }
 }
