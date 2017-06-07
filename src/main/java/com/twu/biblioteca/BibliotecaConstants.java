@@ -12,4 +12,8 @@ public class BibliotecaConstants {
     public final static String MENU = "====== Bangalore Library - MENU ====== \n\n\n";
 
     public static final String MENU_OPTIONS = "1. List all books \n2. Quit";
+
+    public static final String SELECT_VALID_OPTION = "Select a valid option!";
+
+    public static final String CHOOSE_AN_OPTION = "Choose an option:";
 }

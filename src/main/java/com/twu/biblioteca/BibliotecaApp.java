@@ -46,10 +46,10 @@ public class BibliotecaApp {
 
     public static String getMenuOption(InputAsker inputAsker) throws IOException {
 
-        inputAsker.ask("Choose an option:");
+        inputAsker.ask(BibliotecaConstants.CHOOSE_AN_OPTION);
         String answer = inputAsker.getAnswer();
         while(!inputAsker.isValidInput(answer)){
-           inputAsker.ask("Please choose a valid option!");
+           inputAsker.ask(BibliotecaConstants.SELECT_VALID_OPTION);
            answer = inputAsker.getAnswer();
         }
         return answer;
