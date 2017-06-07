@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import com.twu.util.InputAsker;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -16,6 +17,14 @@ public class BibliotecaTest {
         Mockito.verify(bibliotecaApp).printWelcomeMessage();
     }
 
+    @Test
+    public void checkContinueToMenuIsBeingInvoked(){
+
+        InputAsker inputAsker = new InputAsker(System.in, System.out);
+
+        bibliotecaApp.startApp();
+        Mockito.verify(bibliotecaApp).continueToMenu(inputAsker);
+    }
 
 
 }

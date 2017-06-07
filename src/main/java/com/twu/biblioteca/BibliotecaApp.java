@@ -1,16 +1,22 @@
 package com.twu.biblioteca;
 
 
+import com.twu.util.InputAsker;
+
 public class BibliotecaApp {
 
-    public static void startApp() {
+    public  void startApp() {
        printWelcomeMessage();
+       //continueToMenu(new InputAsker(System.in, System.out));
 
     }
 
-
-    public static void printWelcomeMessage() {
+    public void printWelcomeMessage() {
 
         System.out.println(BibliotecaConstants.WELCOME_MESSAGE);
+    }
+
+    public void continueToMenu(InputAsker inputAsker) {
+
     }
 }
