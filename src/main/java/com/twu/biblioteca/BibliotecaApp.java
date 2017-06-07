@@ -3,12 +3,14 @@ package com.twu.biblioteca;
 
 public class BibliotecaApp {
 
-    public void startApp() {
+    public static void startApp() {
        printWelcomeMessage();
+
     }
 
 
-    public void printWelcomeMessage() {
-        System.out.println("sssdf");
+    public static void printWelcomeMessage() {
+
+        System.out.println(BibliotecaConstants.WELCOME_MESSAGE);
     }
 }
