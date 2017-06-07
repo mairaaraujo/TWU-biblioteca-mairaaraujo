@@ -3,14 +3,17 @@ package com.twu.biblioteca;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.Mockito;
 
-/**
- * Created by mairaaraujo on 01/06/17.
- */
+@RunWith(MockitoJUnitRunner.class)
 public class BibliotecaTest {
 
+    @Mock
+    BibliotecaApp bibliotecaApp;
 
-   @Test
+    @Test
     public void testWelcomeMessage(){
        Assert.assertEquals(BibliotecaConstants.WELCOME_MESSAGE, BibliotecaApp.getWelcomeMessage());
     }
@@ -20,6 +23,9 @@ public class BibliotecaTest {
         Assert.assertEquals(BibliotecaConstants.MENU, BibliotecaApp.getMenu());
     }
 
-
-
+    @Test
+    public void name() throws Exception {
+       bibliotecaApp.startApp();
+       Mockito.
+    }
 }

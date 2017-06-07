@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 
-import com.twu.util.InputAsker;
 import java.io.IOException;
 
 public class BibliotecaApp {
@@ -11,7 +10,7 @@ public class BibliotecaApp {
         return BibliotecaConstants.WELCOME_MESSAGE;
     }
 
-    private static void printWelcomeMessage() {
+    public static void printWelcomeMessage() {
 
         System.out.println(getWelcomeMessage());
     }
@@ -20,8 +19,9 @@ public class BibliotecaApp {
     public static void startApp() throws IOException {
 
         printWelcomeMessage();
-        continueToMenu(new InputAsker(System.in, System.out));
+        //continueToMenu(new InputAsker(System.in, System.out));
     }
+/*
 
     public static String getMenu() {
 
@@ -55,6 +55,7 @@ public class BibliotecaApp {
         return answer;
     }
 
+*/
 
     public static void main(String[] args) throws IOException {
 

@@ -5,14 +5,15 @@ import com.twu.biblioteca.BibliotecaApp;
 import com.twu.util.InputAsker;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertFalse;
 
-/**
- * Created by mairaaraujo on 05/06/17.
- */
+@RunWith(MockitoJUnitRunner.class)
 public class InputAskerTest {
 
     /*@Test
@@ -29,21 +30,21 @@ public class InputAskerTest {
     public void shouldAcceptOneDigitInput(){
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        Assert.assertFalse(inputAsker.isValidInput("1"));
+        assertFalse(inputAsker.isValidInput("1"));
     }
 
     @Test
     public void shouldAcceptOnlyOneDigitInputs(){
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        Assert.assertFalse(inputAsker.isValidInput("22"));
+        assertFalse(inputAsker.isValidInput("22"));
     }
 
     @Test
     public void shouldNotAcceptLiteralInputs(){
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        Assert.assertFalse(inputAsker.isValidInput("teste"));
+        assertFalse(inputAsker.isValidInput("teste"));
     }
 
    @Test
@@ -51,6 +52,7 @@ public class InputAskerTest {
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
         Mockito.when(inputAsker.getAnswer()).thenReturn("1");
+
 
         Assert.assertEquals("1", BibliotecaApp.getMenuOption(inputAsker));
     }
