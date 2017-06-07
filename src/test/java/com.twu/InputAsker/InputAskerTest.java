@@ -1,10 +1,13 @@
 package com.twu.InputAsker;
 
 
+import com.twu.biblioteca.BibliotecaApp;
 import com.twu.util.InputAsker;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import java.io.IOException;
 
 
 /**
@@ -13,7 +16,7 @@ import org.mockito.Mockito;
 public class InputAskerTest {
 
     /*@Test
-    public void shouldAcceptValidMenuChoice(){
+    public void shouldAcceptValidMenuChoice() throws IOException {
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
         Mockito.when(inputAsker.getAnswer()).thenReturn("1");
@@ -21,13 +24,13 @@ public class InputAskerTest {
         Assert.assertEquals("1", BibliotecaApp.getMenuOption(inputAsker));
     }*/
 
-/*
+
     @Test
     public void shouldAcceptOneDigitInput(){
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
-        Assert.assertTrue(inputAsker.isValidInput("1"));
-    }*/
+        Assert.assertFalse(inputAsker.isValidInput("1"));
+    }
 
     @Test
     public void shouldAcceptOnlyOneDigitInputs(){
@@ -43,12 +46,21 @@ public class InputAskerTest {
         Assert.assertFalse(inputAsker.isValidInput("teste"));
     }
 
-   /* @Test
-    public void shouldNotAcceptInvalidMenuChoice(){
+   @Test
+    public void shouldNotAcceptInvalidMenuChoice() throws IOException {
 
         InputAsker inputAsker = Mockito.mock(InputAsker.class);
         Mockito.when(inputAsker.getAnswer()).thenReturn("1");
 
         Assert.assertEquals("1", BibliotecaApp.getMenuOption(inputAsker));
+    }
+
+   /* @Test
+    public void shouldAcceptAnyKeyToContinue(){
+
+        InputAsker inputAsker = Mockito.mock(InputAsker.class);
+        Mockito.when(inputAsker.pressToContinue()).thenReturn(true);
+
+        Assert.assertTrue(BibliotecaApp.pressToContinue());
     }*/
 }

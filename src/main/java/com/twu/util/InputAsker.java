@@ -29,4 +29,7 @@ public class InputAsker {
         return ("1".equals(input)) || ("2".equals(input));
     }
 
+    public void pressToContinue() {
+        scanner.nextLine();
+    }
 }
