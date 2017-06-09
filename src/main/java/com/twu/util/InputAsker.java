@@ -4,9 +4,6 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-/**
- * Created by mairaaraujo on 05/06/17.
- */
 public class InputAsker {
 
     private final Scanner scanner;

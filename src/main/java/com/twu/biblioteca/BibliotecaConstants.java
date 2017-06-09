@@ -9,7 +9,7 @@ public class BibliotecaConstants {
 
     public final static String CONTINUE_MESSAGE = "<Press any key to continue>";
 
-    public final static String MENU = "====== Bangalore Library - MENU ====== \n\n\n";
+    public final static String MENU = "====== Bangalore Library - MENU ====== \n\n\n\n";
 
     public static final String MENU_OPTIONS = "1. List all books \n2. Quit";
 

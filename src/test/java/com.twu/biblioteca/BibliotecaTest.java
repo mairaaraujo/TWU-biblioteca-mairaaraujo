@@ -42,6 +42,4 @@ public class BibliotecaTest {
         Mockito.verify(bibliotecaApp).showMenu();
     }
 
-
-
 }
