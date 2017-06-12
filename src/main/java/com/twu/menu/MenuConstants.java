@@ -15,7 +15,9 @@ public class MenuConstants {
 
     public static final String SELECT_VALID_OPTION = "Select a valid option!";
 
-    public static final String BOOK_LIST_HEAD = " Book name    ||  Author name    || Publishing year";
+    public static final String BOOK_LIST_HEAD = " ====== Bangalore Library - AVAILABLE BOOKS ====== \n\n\n\n";
+
+
 
     public static final ArrayList<String> menuOptions = new ArrayList<String>(){{
         add("1");

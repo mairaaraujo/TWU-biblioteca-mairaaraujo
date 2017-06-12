@@ -19,7 +19,7 @@ public class InputAsker {
     }
 
     public String getAnswer(){
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public void pressToContinue() {

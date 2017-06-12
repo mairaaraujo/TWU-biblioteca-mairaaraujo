@@ -23,6 +23,9 @@ public class MenuDispatcherTest {
     @Mock
     ListBookService listBookService;
 
+    @Mock
+    CheckoutBookService checkoutBookService;
+
     @InjectMocks
     MenuDispatcher menuDispatcher;
 
@@ -31,7 +34,7 @@ public class MenuDispatcherTest {
     @Test
     public void shouldAcceptValidOption() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService);
+        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
         String option = "1";
 
         Assert.assertTrue(menuDispatcher.validatePickedOption(option));
@@ -40,7 +43,7 @@ public class MenuDispatcherTest {
     @Test
     public void shouldNotAcceptInvalidOption() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService);
+        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
         String option = "option";
 
         Assert.assertFalse(menuDispatcher.validatePickedOption(option));
@@ -49,10 +52,18 @@ public class MenuDispatcherTest {
     @Test
     public void bookListIsPrinted() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService);
+        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
         menuDispatcher.printListBooks();
 
         Mockito.verify(listBookService).printBookList();
     }
 
+    @Test
+    public void checkoutBookIsInvoked() throws Exception {
+
+        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
+        menuDispatcher.checkoutBook();
+
+        Mockito.verify(checkoutBookService).pickABook(inputAsker);
+    }
 }

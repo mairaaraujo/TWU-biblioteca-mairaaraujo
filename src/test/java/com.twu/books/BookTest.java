@@ -44,4 +44,14 @@ public class BookTest {
 
         Assert.assertEquals(bookDetails, book.getDetails());
     }
+
+    @Test
+    public void testGetBookAvailability() throws Exception {
+
+        Book book = new Book();
+        book.setAuthorName("George Orwell");
+        book.setAvailable(true);
+
+        Assert.assertTrue(book.isAvailable());
+    }
 }

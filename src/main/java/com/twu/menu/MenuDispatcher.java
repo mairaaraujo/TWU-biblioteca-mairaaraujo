@@ -3,6 +3,7 @@ package com.twu.menu;
 
 import com.twu.inputAsker.InputAsker;
 import com.twu.inputAsker.InputAskerValidator;
+import com.twu.services.BookService;
 import com.twu.services.ListBookService;
 
 public class MenuDispatcher {
@@ -10,11 +11,13 @@ public class MenuDispatcher {
     Menu menu;
     InputAsker inputAsker;
     ListBookService listBookService;
+    BookService bookService;
 
-    public MenuDispatcher(Menu menu, InputAsker inputAsker, ListBookService listBookService) {
+    public MenuDispatcher(Menu menu, InputAsker inputAsker, ListBookService listBookService, BookService bookService) {
         this.menu = menu;
         this.inputAsker = inputAsker;
         this.listBookService = listBookService;
+        this.bookService = bookService;
     }
 
     public boolean validatePickedOption(String option) {
@@ -33,9 +36,14 @@ public class MenuDispatcher {
         if(MenuConstants.LIST_BOOKS.equals(option))
             printListBooks();
 
-        //  else if(MenuConstants.QUIT.equals(option))
     }
     public void printListBooks() {
         listBookService.printBookList();
+        showSubMenuOptions();
+    }
+
+    public void showSubMenuOptions() {
+
+        bookService.askOption(inputAsker);
     }
 }

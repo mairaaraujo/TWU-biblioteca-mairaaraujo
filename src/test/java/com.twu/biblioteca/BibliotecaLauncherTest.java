@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import com.twu.menu.MenuDispatcher;
 import com.twu.welcomeUser.WelcomeUser;
 import com.twu.inputAsker.InputAsker;
 import org.junit.Test;
@@ -22,10 +23,13 @@ public class BibliotecaLauncherTest {
     @Mock
     InputAsker inputAsker;
 
+    @Mock
+    MenuDispatcher menuDispatcher;
+
     @Test
     public void isWelcomeMessagePrinted() {
 
-        bibliotecaLauncher = new BibliotecaLauncher(welcomeUser, inputAsker);
+        bibliotecaLauncher = new BibliotecaLauncher(welcomeUser, inputAsker, menuDispatcher);
         bibliotecaLauncher.startApp();
         Mockito.verify(welcomeUser).showMessage();
     }
@@ -33,7 +37,7 @@ public class BibliotecaLauncherTest {
     @Test
     public void isProceedToMenuInvoked() throws Exception {
 
-        bibliotecaLauncher = new BibliotecaLauncher(welcomeUser, inputAsker);
+        bibliotecaLauncher = new BibliotecaLauncher(welcomeUser, inputAsker, menuDispatcher);
         bibliotecaLauncher.startApp();
         Mockito.verify(welcomeUser).proceedToMenu(inputAsker);
 
