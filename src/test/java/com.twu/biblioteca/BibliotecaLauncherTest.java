@@ -1,7 +1,8 @@
 package com.twu.biblioteca;
 
 
-import com.twu.util.InputAsker;
+import com.twu.welcomeUser.WelcomeUser;
+import com.twu.inputAsker.InputAsker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -10,7 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class LauncherTest {
+public class BibliotecaLauncherTest {
 
     @InjectMocks
     BibliotecaLauncher bibliotecaLauncher;
@@ -20,9 +21,6 @@ public class LauncherTest {
 
     @Mock
     InputAsker inputAsker;
-
-    @Mock
-    Menu menu;
 
     @Test
     public void isWelcomeMessagePrinted() {

@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by mairaaraujo on 06/06/17.
  */
-public class BooksTest {
+public class BookTest {
 
     @Test
     public void testGetBookName(){
@@ -39,6 +39,9 @@ public class BooksTest {
     public void testGetBookDetails(){
 
         Book book = Book.bookList.get(0);
+        String bookDetails = book.getName() + " || " + "Author: " + book.getAuthorName() +
+                " || Publishing year: " + String.valueOf(book.getPublishedYear());
 
+        Assert.assertEquals(bookDetails, book.getDetails(book));
     }
 }

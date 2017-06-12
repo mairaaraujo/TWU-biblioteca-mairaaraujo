@@ -35,6 +35,10 @@ public class Book {
         return authorName;
     }
 
+    public String getDetails(Book book) {
+        return book.getName() + " || Author: " + book.getAuthorName() + " || Publishing year: " + String.valueOf(book.getPublishedYear());
+    }
+
     public Book(){}
 
     public Book(String name, String authorName, int publishedYear){
@@ -45,12 +49,14 @@ public class Book {
 
     public static final ArrayList<Book> bookList = new ArrayList<Book>(){{
 
-        bookList.add(new Book("1984", "George Orwell",1949));
-        bookList.add(new Book("Half of a yellow sun", "Chimamanda Ngozi Adichie", 2006));
-        bookList.add(new Book("Clockwork orange", "Anthony Burgess", 1962));
-        bookList.add(new Book("Brave new world", "Aldous Huxley", 1932));
-        bookList.add(new Book("Wonder", "R.J. Palacio", 2012));
-        bookList.add(new Book("The Goldfinch", "Donna Tartt", 2013));
-        bookList.add(new Book("To kill a mockingbird", "Harper Lee", 1960));
+        add(new Book("1984", "George Orwell",1949));
+        add(new Book("Half of a yellow sun", "Chimamanda Ngozi Adichie", 2006));
+        add(new Book("Clockwork orange", "Anthony Burgess", 1962));
+        add(new Book("Brave new world", "Aldous Huxley", 1932));
+        add(new Book("Wonder", "R.J. Palacio", 2012));
+        add(new Book("The Goldfinch", "Donna Tartt", 2013));
+        add(new Book("To kill a mockingbird", "Harper Lee", 1960));
     }};
+
+
 }

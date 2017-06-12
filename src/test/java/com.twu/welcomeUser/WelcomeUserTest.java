@@ -1,6 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.welcomeUser;
 
-import com.twu.util.InputAsker;
+import com.twu.inputAsker.InputAsker;
+import com.twu.menu.Menu;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -9,7 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class WelcomeTest {
+public class WelcomeUserTest {
 
     @Mock
     Menu menu;

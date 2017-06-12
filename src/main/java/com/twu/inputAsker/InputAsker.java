@@ -1,4 +1,4 @@
-package com.twu.util;
+package com.twu.inputAsker;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -20,10 +20,6 @@ public class InputAsker {
 
     public String getAnswer(){
         return scanner.next();
-    }
-
-    public boolean isValidInput(String input) {
-        return ("1".equals(input)) || ("2".equals(input));
     }
 
     public void pressToContinue() {
