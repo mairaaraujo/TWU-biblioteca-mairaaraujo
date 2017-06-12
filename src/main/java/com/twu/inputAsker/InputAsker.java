@@ -25,4 +25,5 @@ public class InputAsker {
     public void pressToContinue() {
         scanner.nextLine();
     }
+
 }

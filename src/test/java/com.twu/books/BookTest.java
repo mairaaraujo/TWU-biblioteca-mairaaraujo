@@ -42,6 +42,6 @@ public class BookTest {
         String bookDetails = book.getName() + " || " + "Author: " + book.getAuthorName() +
                 " || Publishing year: " + String.valueOf(book.getPublishedYear());
 
-        Assert.assertEquals(bookDetails, book.getDetails(book));
+        Assert.assertEquals(bookDetails, book.getDetails());
     }
 }

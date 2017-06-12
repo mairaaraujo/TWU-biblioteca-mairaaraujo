@@ -35,8 +35,8 @@ public class Book {
         return authorName;
     }
 
-    public String getDetails(Book book) {
-        return book.getName() + " || Author: " + book.getAuthorName() + " || Publishing year: " + String.valueOf(book.getPublishedYear());
+    public String getDetails() {
+        return this.getName() + " || Author: " + this.getAuthorName() + " || Publishing year: " + String.valueOf(this.getPublishedYear());
     }
 
     public Book(){}
