@@ -5,6 +5,7 @@ import com.twu.inputAsker.InputAsker;
 import com.twu.inputAsker.InputAskerValidator;
 import com.twu.services.BookService;
 import com.twu.services.ListBookService;
+import com.twu.util.BibliotecaConstants;
 
 public class MenuDispatcher {
 
@@ -33,17 +34,27 @@ public class MenuDispatcher {
             option = inputAsker.getAnswer();
         }
 
-        if(MenuConstants.LIST_BOOKS.equals(option))
+        if(MenuConstants.LIST_BOOKS.equals(option)){
             printListBooks();
+
+        }
+
 
     }
     public void printListBooks() {
         listBookService.printBookList();
         showSubMenuOptions();
+
     }
 
     public void showSubMenuOptions() {
 
         bookService.askOption(inputAsker);
+    }
+
+    public void proceedToMenu() {
+        inputAsker.ask(BibliotecaConstants.CONTINUE_MESSAGE);
+        inputAsker.pressToContinue();
+
     }
 }
