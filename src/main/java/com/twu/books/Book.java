@@ -15,29 +15,14 @@ public class Book {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setPublishedYear(int publishedYear) {
-        this.publishedYear = publishedYear;
     }
 
     public int getPublishedYear() {
         return publishedYear;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
 
     public String getAuthorName() {
         return authorName;

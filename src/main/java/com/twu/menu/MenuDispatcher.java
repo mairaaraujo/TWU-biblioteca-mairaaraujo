@@ -5,20 +5,18 @@ import com.twu.inputAsker.InputAsker;
 import com.twu.inputAsker.InputAskerValidator;
 import com.twu.services.BookService;
 import com.twu.services.ListBookService;
+import com.twu.services.MovieService;
 import com.twu.util.BibliotecaConstants;
 
 public class MenuDispatcher {
 
-    Menu menu;
     InputAsker inputAsker;
     ListBookService listBookService;
     BookService bookService;
+    MovieService movieService;
 
-    public MenuDispatcher(Menu menu, InputAsker inputAsker, ListBookService listBookService, BookService bookService) {
-        this.menu = menu;
-        this.inputAsker = inputAsker;
-        this.listBookService = listBookService;
-        this.bookService = bookService;
+    public MenuDispatcher() {
+
     }
 
     public boolean validatePickedOption(String option) {
@@ -36,19 +34,23 @@ public class MenuDispatcher {
 
         if(MenuConstants.LIST_BOOKS.equals(option)){
             printListBooks();
-
         }
 
-
+        else if(MenuConstants.LIST_MOVIES.equals(option)){
+            printMovieList();
+        }
     }
+
     public void printListBooks() {
+        listBookService = new ListBookService();
         listBookService.printBookList();
         showSubMenuOptions();
 
     }
 
     public void showSubMenuOptions() {
-
+        bookService = new BookService();
+        inputAsker = new InputAsker(System.in, System.out);
         bookService.askOption(inputAsker);
     }
 
@@ -56,5 +58,17 @@ public class MenuDispatcher {
         inputAsker.ask(BibliotecaConstants.CONTINUE_MESSAGE);
         inputAsker.pressToContinue();
 
+    }
+
+    public void printMovieList() {
+        movieService = new MovieService();
+        movieService.printMovieList();
+        showMovieOptions();
+    }
+
+    public void showMovieOptions() {
+        movieService = new MovieService();
+        inputAsker = new InputAsker(System.in, System.out);
+        movieService.askOption(inputAsker);
     }
 }

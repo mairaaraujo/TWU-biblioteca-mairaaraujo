@@ -3,6 +3,7 @@ package com.twu.menu;
 
 import com.twu.inputAsker.InputAsker;
 import com.twu.services.ListBookService;
+import com.twu.services.MovieService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +15,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class MenuDispatcherTest {
 
-    @Mock
-    Menu menu;
 
     @Mock
     InputAsker inputAsker;
@@ -24,7 +23,7 @@ public class MenuDispatcherTest {
     ListBookService listBookService;
 
     @Mock
-    CheckoutBookService checkoutBookService;
+    MovieService movieService;
 
     @InjectMocks
     MenuDispatcher menuDispatcher;
@@ -34,7 +33,7 @@ public class MenuDispatcherTest {
     @Test
     public void shouldAcceptValidOption() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
+        menuDispatcher = new MenuDispatcher();
         String option = "1";
 
         Assert.assertTrue(menuDispatcher.validatePickedOption(option));
@@ -43,7 +42,7 @@ public class MenuDispatcherTest {
     @Test
     public void shouldNotAcceptInvalidOption() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
+        menuDispatcher = new MenuDispatcher();
         String option = "option";
 
         Assert.assertFalse(menuDispatcher.validatePickedOption(option));
@@ -52,18 +51,19 @@ public class MenuDispatcherTest {
     @Test
     public void bookListIsPrinted() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
+        menuDispatcher = new MenuDispatcher();
         menuDispatcher.printListBooks();
 
         Mockito.verify(listBookService).printBookList();
     }
 
     @Test
-    public void checkoutBookIsInvoked() throws Exception {
+    public void movieListIsPrinted() throws Exception {
 
-        menuDispatcher = new MenuDispatcher(menu, inputAsker, listBookService, checkoutBookService);
-        menuDispatcher.checkoutBook();
+        menuDispatcher = new MenuDispatcher();
+        menuDispatcher.printMovieList();
 
-        Mockito.verify(checkoutBookService).pickABook(inputAsker);
+        Mockito.verify(movieService).printMovieList();
     }
+
 }

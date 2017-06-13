@@ -24,14 +24,6 @@ public class BookServiceTest {
     @InjectMocks
     BookService bookService;
 
-    @Test
-    public void getBookById() throws Exception {
-
-        String bookId = "01";
-
-        Assert.assertEquals(Book.bookList.get(bookId), bookService.getBookById(bookId));
-
-    }
 
     @Test
     public void returnBook() throws Exception {
@@ -47,9 +39,5 @@ public class BookServiceTest {
         bookService.checkoutBook(book);
 
         Assert.assertFalse(book.isAvailable());
-    }
-
-    @Test
-    public void name() throws Exception {
     }
 }
