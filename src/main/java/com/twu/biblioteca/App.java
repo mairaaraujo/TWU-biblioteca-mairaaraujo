@@ -13,9 +13,9 @@ public class App {
 
         Menu menu = new Menu();
         WelcomeUser welcomeUser = new WelcomeUser(menu);
-        InputAsker inputAsker = new InputAsker(System.in, System.out);
+        InputAsker inputAsker = InputAsker.getInstance();
 
-        MenuDispatcher menuDispatcher = new MenuDispatcher();
+        MenuDispatcher menuDispatcher = MenuDispatcher.getInstance();
 
         BibliotecaLauncher bibliotecaLauncher = new BibliotecaLauncher(welcomeUser, inputAsker, menuDispatcher);
         bibliotecaLauncher.startApp();

@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertFalse;
+
 @RunWith(MockitoJUnitRunner.class)
 public class UtilTest {
 
@@ -44,7 +46,7 @@ public class UtilTest {
         Util util = new Util();
         String input = "some random book";
 
-        Assert.assertFalse(util.isAnExistingBook(input));
+        assertFalse(util.isAnExistingBook(input));
     }
 
 

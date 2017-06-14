@@ -2,9 +2,7 @@ package com.twu.util;
 
 import com.twu.books.Book;
 
-/**
- * Created by mairaaraujo on 12/06/17.
- */
+
 public class Util {
 
     public boolean isBookAvailable(Book book) {

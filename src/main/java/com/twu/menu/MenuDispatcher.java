@@ -9,14 +9,22 @@ import com.twu.services.MovieService;
 import com.twu.util.BibliotecaConstants;
 
 public class MenuDispatcher {
+    private static MenuDispatcher instance = new MenuDispatcher();
 
-    InputAsker inputAsker;
-    ListBookService listBookService;
-    BookService bookService;
-    MovieService movieService;
+    private InputAsker inputAsker;
+    private ListBookService listBookService;
+    private BookService bookService;
+    private MovieService movieService;
 
-    public MenuDispatcher() {
+    private MenuDispatcher() {
+        inputAsker = InputAsker.getInstance();
+        listBookService = ListBookService.getInstance();
+        bookService = BookService.getInstance();
+        movieService = MovieService.getInstance();
+    }
 
+    public static MenuDispatcher getInstance() {
+        return instance;
     }
 
     public boolean validatePickedOption(String option) {
@@ -42,15 +50,12 @@ public class MenuDispatcher {
     }
 
     public void printListBooks() {
-        listBookService = new ListBookService();
         listBookService.printBookList();
         showSubMenuOptions();
 
     }
 
     public void showSubMenuOptions() {
-        bookService = new BookService();
-        inputAsker = new InputAsker(System.in, System.out);
         bookService.askOption(inputAsker);
     }
 
@@ -61,14 +66,11 @@ public class MenuDispatcher {
     }
 
     public void printMovieList() {
-        movieService = new MovieService();
         movieService.printMovieList();
         showMovieOptions();
     }
 
     public void showMovieOptions() {
-        movieService = new MovieService();
-        inputAsker = new InputAsker(System.in, System.out);
         movieService.askOption(inputAsker);
     }
 }

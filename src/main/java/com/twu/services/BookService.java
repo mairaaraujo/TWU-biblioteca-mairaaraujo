@@ -7,6 +7,12 @@ import com.twu.util.Util;
 
 public class BookService {
 
+    private static BookService instance = new BookService();
+
+    public static BookService getInstance(){
+        return instance;
+    }
+
 
     public void checkoutBook(Book book) {
         book.setAvailable(false);

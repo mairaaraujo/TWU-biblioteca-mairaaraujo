@@ -6,7 +6,16 @@ import com.twu.util.Util;
 
 public class MovieService {
 
-    UserService userService;
+    private static MovieService instance = new MovieService();
+
+    //private UserService userService;
+
+    public static MovieService getInstance(){
+        return instance;
+    }
+
+
+
 
     public void checkoutMovie(Movie movie) {
         movie.setAvailable(false);

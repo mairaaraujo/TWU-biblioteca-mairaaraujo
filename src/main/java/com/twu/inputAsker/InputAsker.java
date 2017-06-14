@@ -1,18 +1,25 @@
 package com.twu.inputAsker;
 
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
 public class InputAsker {
 
-    private final Scanner scanner;
-    private final PrintStream out;
+    public static InputAsker instance = new InputAsker();
 
-    public InputAsker(InputStream in, PrintStream out) {
-        scanner = new Scanner(in);
-        this.out = out;
+
+    private Scanner scanner;
+    private PrintStream out;
+
+    private InputAsker() {
+        scanner = new Scanner(System.in);
+        out = System.out;
     }
+
+    public static InputAsker getInstance(){
+        return instance;
+    }
+
 
     public void ask(String message) {
         out.println(message);
