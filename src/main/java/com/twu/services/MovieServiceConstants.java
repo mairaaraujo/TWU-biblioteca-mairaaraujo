@@ -9,5 +9,7 @@ public class MovieServiceConstants {
 
     public static final String SUBMENU_MOVIE_LIST = "\n------> To checkout a movie, type your option and the movie id (e.g.: 'return 01')";
 
+    public static final String SUCCESSFUL_CHECKOUT = "\nEnjoy the movie!";
+
 
 }

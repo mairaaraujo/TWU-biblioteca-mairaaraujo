@@ -5,10 +5,16 @@ import com.twu.user.User;
 
 public class UserService {
 
-    InputAsker inputAsker;
+    private InputAsker inputAsker;
 
-    public UserService(InputAsker inputAsker) {
-        this.inputAsker = inputAsker;
+    private static UserService instance = new UserService();
+
+    public static UserService getInstance(){
+        return instance;
+    }
+
+    public UserService() {
+        this.inputAsker = InputAsker.getInstance();
     }
 
     public boolean isValidUser(String libraryNumber) {
@@ -20,10 +26,9 @@ public class UserService {
     }
 
 
-    public String askUserLogin(InputAsker inputAsker) {
+    public String askUserLogin() {
         inputAsker.ask(UserServiceConstants.USER_LOGIN);
         String user = inputAsker.getAnswer();
-
         while(!isValidUser(user)){
             inputAsker.ask(UserServiceConstants.INVALID_USER);
             user = inputAsker.getAnswer();
@@ -46,4 +51,32 @@ public class UserService {
 
         return null;
     }
+
+    public String askUserPassword(User user){
+        inputAsker.ask(UserServiceConstants.USER_PASSWORD);
+        String password = inputAsker.getAnswer();
+
+        while(!isValidPassword(user, password)){
+            inputAsker.ask(UserServiceConstants.INCORRECT_PASSWORD);
+            password = inputAsker.getAnswer();
+
+            if(isQuitCommand(password))
+                return "";
+        }
+        return password;
+    }
+
+    public boolean login(){
+
+        String libraryNumber = askUserLogin();
+        if(!"".equals(libraryNumber)){
+            User user = getUserByLibraryNumber(libraryNumber);
+            String password = askUserPassword(user);
+            if(!"".equals(password))
+                return true;
+        }
+
+        return false;
+    }
+
 }

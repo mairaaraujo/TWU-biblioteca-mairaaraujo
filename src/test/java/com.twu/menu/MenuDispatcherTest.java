@@ -33,7 +33,7 @@ public class MenuDispatcherTest {
     @Test
     public void shouldAcceptValidOption() throws Exception {
 
-        menuDispatcher = new MenuDispatcher();
+        menuDispatcher = MenuDispatcher.getInstance();
         String option = "1";
 
         Assert.assertTrue(menuDispatcher.validatePickedOption(option));
@@ -42,7 +42,7 @@ public class MenuDispatcherTest {
     @Test
     public void shouldNotAcceptInvalidOption() throws Exception {
 
-        menuDispatcher = new MenuDispatcher();
+        menuDispatcher = MenuDispatcher.getInstance();
         String option = "option";
 
         Assert.assertFalse(menuDispatcher.validatePickedOption(option));
@@ -51,7 +51,7 @@ public class MenuDispatcherTest {
     @Test
     public void bookListIsPrinted() throws Exception {
 
-        menuDispatcher = new MenuDispatcher();
+        menuDispatcher = MenuDispatcher.getInstance();
         menuDispatcher.printListBooks();
 
         Mockito.verify(listBookService).printBookList();
@@ -60,7 +60,7 @@ public class MenuDispatcherTest {
     @Test
     public void movieListIsPrinted() throws Exception {
 
-        menuDispatcher = new MenuDispatcher();
+        menuDispatcher = MenuDispatcher.getInstance();
         menuDispatcher.printMovieList();
 
         Mockito.verify(movieService).printMovieList();

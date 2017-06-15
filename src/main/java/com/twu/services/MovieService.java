@@ -6,19 +6,20 @@ import com.twu.util.Util;
 
 public class MovieService {
 
+    private UserService userService;
     private static MovieService instance = new MovieService();
-
-    //private UserService userService;
 
     public static MovieService getInstance(){
         return instance;
     }
 
-
-
+    public MovieService() {
+        this.userService = UserService.getInstance();
+    }
 
     public void checkoutMovie(Movie movie) {
         movie.setAvailable(false);
+        System.out.println(MovieServiceConstants.SUCCESSFUL_CHECKOUT);
     }
 
     public void printMovieList(){
@@ -39,7 +40,8 @@ public class MovieService {
     public void processAction(String action, String bookId) {
 
         if(MovieServiceConstants.CHECKOUT_MOVIE.equals(action.trim().toLowerCase())){
-            checkoutMovie(Movie.movieList.get(bookId));
+            if(userService.login());
+                checkoutMovie(Movie.movieList.get(bookId));
         }
     }
 
